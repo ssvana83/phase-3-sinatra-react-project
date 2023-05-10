@@ -5,8 +5,10 @@ function NavBar () {
   return (
     <div>
       <ul>
-        <li><NavLink to="/">Home</NavLink></li>
-        <li><NavLink to="/trails">Trails</NavLink></li>
+        <li><NavLink to="/home">Home</NavLink></li>
+        <li><NavLink to="/players">Players</NavLink></li>
+        <li><NavLink to="/teams">Teams</NavLink></li>
+        
 
       </ul>
     </div>
