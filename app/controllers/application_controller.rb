@@ -6,4 +6,11 @@ class ApplicationController < Sinatra::Base
     { message: "Good luck with your project!" }.to_json
   end
 
+  # only having this just returns this first message/the last line. adding this below will then 
+
+  get "/players" do
+    players = Player.all.order(:created_at)
+    players.to_json
+  end
+
 end
