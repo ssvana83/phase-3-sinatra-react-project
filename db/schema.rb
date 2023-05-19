@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 2023_05_10_191005) do
     t.string "last_name"
     t.integer "jersey_number"
     t.string "position"
+    t.integer "team_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
