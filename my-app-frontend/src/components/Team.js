@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-// import Player from './components/Player';
+import Player from '../components/Player';
 
 
 const Team = () => {
@@ -15,15 +15,23 @@ const Team = () => {
     .then(res => res.json())
     .then(data => {
       console.log(data)
+      setTeam(data)
     })
   }, [])
+
+  const players = team.players.map(p => <Player key={p.id} player={p} />)
 
   return (
     <div>
 
-    <h3>I am a team</h3>
-
-
+    <br />
+    <h2>{team.name}</h2>
+    <hr />
+    <h3>Players:</h3>
+    <br />
+    {players}
+    <br />
+    
     </div>
   )
 }
