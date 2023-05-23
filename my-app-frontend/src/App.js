@@ -10,6 +10,9 @@ import Team from './components/Team';
 
 
 function App() {
+
+  // need a get request here. 
+  // initial state is established. 
   return (
     <div className="App">
     <Router>

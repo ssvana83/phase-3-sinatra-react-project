@@ -3,7 +3,7 @@ import React from 'react'
 const Player = ({player}) => {
   return (
     <div>
-      <h3>{player.name}</h3>
+      <h3>{player.first_name} {player.last_name}</h3>
       <br />
     </div>
   )

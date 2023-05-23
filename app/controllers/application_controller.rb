@@ -1,17 +1,20 @@
 class ApplicationController < Sinatra::Base
   set :default_content_type, 'application/json'
   
+
+  # the order of these matters 
   get "/" do
     { message: "Good luck with your project!" }.to_json
   end
 
+  # registering a route....
   # Players Index Route; READ
   get "/players" do
     players = Player.all.order(:created_at)
     players.to_json
   end
 
-  # Players Show Route; READ
+  # Players Show Route(just shows 1 player); READ
   get "/players/:id" do
       players = Player.find_by(id: params[:id])
       players.to_json
@@ -30,6 +33,7 @@ class ApplicationController < Sinatra::Base
   end
   # edit to change one player 
 
+  
   delete "/players/:id" do
     players = Player.find(params[:id])
     players.destroy
