@@ -22,6 +22,7 @@ function App() {
         <Route exact path="/" element={<Home/>} />
         <Route exact path="/teams" element={<Teams />} />
         <Route path="/teams/:id" element={<Team />} />
+        
 
        </Routes>
         <Home />

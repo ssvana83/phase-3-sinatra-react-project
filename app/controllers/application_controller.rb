@@ -2,29 +2,30 @@ class ApplicationController < Sinatra::Base
   set :default_content_type, 'application/json'
   
 
-  # the order of these matters 
+  # the order of these routes matters **
   get "/" do
     { message: "Good luck with your project!" }.to_json
   end
 
   # registering a route....
   # Players Index Route; READ
-  get "/players" do
-    players = Player.all.order(:created_at)
-    players.to_json
-  end
+  # get "/players" do
+  #   players = Player.all.order(:created_at)
+  #   players.to_json
+  # end
 
   # Players Show Route(just shows 1 player); READ
-  get "/players/:id" do
-      players = Player.find_by(id: params[:id])
-      players.to_json
-  end
+  # get "/players/:id" do
+  #     players = Player.find_by(id: params[:id])
+  #     players.to_json
+  # end
   
 
   post "/players" do
     players = Player.create(first_name: params[:first_name], last_name: params[:last_name], jersey_number: params[:jersey_number], position: params[:position], team: params[:team])
     players.to_json
   end
+  # creating a player on the backend but not associating with a team??
 
   patch "/players/:id" do
     players = Player.find(params[:id])
