@@ -20,20 +20,7 @@ const Team = () => {
     })
   }, [])
 
-  // FOR PLAYERFORM 
-  // const addPlayer = (player) => {
-  //   fetch(`http://localhost:9292/players`, {
-  //     method: "POST",
-  //     header: {
 
-  //     },
-  //     body: json.stringify({
-  //       first_name: player.first_name,
-  //       team_id: params.id
-
-  //     })
-  //   })
-  // }
 
   const players = team.players.map(p => <Player key={p.id} player={p} />)
 

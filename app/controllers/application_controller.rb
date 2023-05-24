@@ -7,38 +7,30 @@ class ApplicationController < Sinatra::Base
     { message: "Good luck with your project!" }.to_json
   end
 
-  # registering a route....
-  # Players Index Route; READ
-  # get "/players" do
-  #   players = Player.all.order(:created_at)
-  #   players.to_json
-  # end
-
-  # Players Show Route(just shows 1 player); READ
-  # get "/players/:id" do
-  #     players = Player.find_by(id: params[:id])
-  #     players.to_json
-  # end
+  
+  post "/player" do
+    team = Team.find(params[:team_id])
+    player = team.players.create(
+      first_name: params[:first_name], 
+      last_name: params[:last_name], 
+      jersey_number: params[:jersey_number], 
+      position: params[:position]
+    )
+    player.to_json
+  end
   
 
-  post "/players" do
-    players = Player.create(first_name: params[:first_name], last_name: params[:last_name], jersey_number: params[:jersey_number], position: params[:position], team: params[:team])
-    players.to_json
-  end
-  # creating a player on the backend but not associating with a team??
-
-  patch "/players/:id" do
-    players = Player.find(params[:id])
-    players.update(first_name: params[:first_name])
-    players.to_json
+  patch "/player/:id" do
+    player = Player.find(params[:id])
+    player.update(first_name: params[:first_name])
+    player.to_json
   end
   # edit to change one player 
 
   
-  delete "/players/:id" do
-    players = Player.find(params[:id])
-    players.destroy
-    players.to_json
+  delete "/player/:id" do
+    player = Player.find(params[:id])
+    player.destroy
   end
 
 # Teams Index Route; READ
@@ -46,13 +38,7 @@ class ApplicationController < Sinatra::Base
     teams = Team.all.order(:created_at)
     teams.to_json(include: :players)
   end
-  # (include: :players) is what renders nested json
-
-  # Teams Show Route; READ
-  get "/teams/:id" do
-    teams = Team.find_by(id: params[:id])
-    teams.to_json(include: :players)
-  end
+  
 
   # more routes for teams
 
