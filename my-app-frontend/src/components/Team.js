@@ -3,36 +3,18 @@ import { useParams } from 'react-router-dom';
 import Player from '../components/Player';
 
 
-const Team = () => {
-  const [team, setTeam] = useState({
-    players: []
-  })
-  const [playerFormFlag, setPlayerFormFlag] =useState(false);
-  const params = useParams()
-  // now have access to params
-
-  useEffect(() => {
-    fetch(`http://localhost:9292/teams/${params.id}`)
-    .then(res => res.json())
-    .then(data => {
-      console.log(data)
-      setTeam(data)
-    })
-  }, [])
-
-
-
-  const players = team.players.map(p => <Player key={p.id} player={p} />)
+const Team = ({ players }) => {
+  
+  const displayPlayers = players.map(p => <Player key={p.id} player={p} />)
 
   return (
     <div>
 
       <br />
-      <h2>{team.name}</h2>
       <hr />
       <h3>Players:</h3>
       <br />
-      {players}
+      {displayPlayers}
       <br />
 
     </div>
@@ -41,4 +23,3 @@ const Team = () => {
 
 export default Team;
 
-// since state is here, I want to add the player button in the file that owns the state

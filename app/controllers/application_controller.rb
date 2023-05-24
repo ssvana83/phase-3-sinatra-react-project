@@ -7,7 +7,6 @@ class ApplicationController < Sinatra::Base
     { message: "Good luck with your project!" }.to_json
   end
 
-  
   post "/player" do
     team = Team.find(params[:team_id])
     player = team.players.create(
