@@ -10,6 +10,8 @@ function Header() {
           ⚽️
         </span>
       </h1>
+      <p>View your favorite soccer players and teams!</p>
+      
 
     </header>
   );

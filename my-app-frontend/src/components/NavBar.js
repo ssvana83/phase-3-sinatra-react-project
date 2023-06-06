@@ -14,9 +14,9 @@ function NavBar () {
   return (
     <div>
       <ul>
-        <NavLink to="/home" exact style={link} activestyle={{background: 'darkgreen'}}>Home</NavLink>
-        <NavLink to="/players" exact style={link} activestyle={{background: 'darkgreen'}}>Players</NavLink>
-        <NavLink to="/teams" exact style={link} activestyle={{background: 'darkgreen'}}>Teams</NavLink>
+        <NavLink to="/home" style={link} activestyle={{background: 'darkgreen'}}>Home</NavLink>
+        <NavLink to="/players" style={link} activestyle={{background: 'darkgreen'}}>Players</NavLink>
+        <NavLink to="/teams" style={link} activestyle={{background: 'darkgreen'}}>Teams</NavLink>
         
 
       </ul>

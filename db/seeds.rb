@@ -1,10 +1,6 @@
 puts "🌱 Seeding spices..."
 
-# insert a destroy all code here
-# Team.delete_all
-# Players.delete_all
-# then reseed
-# binding.pry
+
 Team.create([
   {
     name: "USWNT",

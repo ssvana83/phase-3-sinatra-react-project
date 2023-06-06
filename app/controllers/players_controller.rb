@@ -1,13 +1,8 @@
-class ApplicationController < Sinatra::Base
+class PlayersController < ApplicationController  
   set :default_content_type, 'application/json'
   
-  # get "/" do
-  #   players = Player.all.order(:created_at)
-  #   players.to_json(include: :players)
-  # end
 
-
-  post "/player" do
+  post "/players" do
     team = Team.find(params[:team_id])
     player = team.players.create(
       first_name: params[:first_name], 
@@ -18,24 +13,18 @@ class ApplicationController < Sinatra::Base
     player.to_json
   end
 
-  patch "/player/:id" do
+  patch "/players/:id" do
     player = Player.find(params[:id])
     player.update(first_name: params[:first_name])
     player.to_json
   end
   # # edit to change one player 
 
-  delete "/player/:id" do
+  delete "/players/:id" do
     player = Player.find(params[:id])
     player.destroy
   end
 
-# Teams Index Route; READ
-  get "/teams" do
-    teams = Team.all.order(:created_at)
-    teams.to_json(include: :players)
-  end
-  
 
 
 end

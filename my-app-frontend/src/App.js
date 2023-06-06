@@ -7,10 +7,12 @@ import Home from './components/Home';
 import Header from './components/Header';
 import Teams from './components/Teams';
 import Team from './components/Team';
+import Player from './components/Player';
 
 
 function App() {
   const [teams, setTeams] = useState([])
+  // const [players, setPlayers] = useState([])
 
   useEffect(() => {
     fetch('http://localhost:9292/teams')
@@ -18,23 +20,30 @@ function App() {
     .then(data => {
       console.log(data)
       setTeams(data)
+      // setPlayers(data)
     })
   }, [])
 
+  
+  // useEffect(() => {
+  //   fetch('http://localhost:9292/players')
+  //   .then(response => response.json())
+  //   .then(data => {
+  //     console.log(data)
+  //     setPlayers(data)
+  //   })
+  // }, [])
 
-
-  // need a get request here. 
-  // initial state is established. 
   return (
     <div className="App">
     <Router>
         <Header />
         <NavBar />
        <Routes>
-        <Route exact path="/" element={<Home/>} />
-        <Route exact path="/teams" element={<Teams teams={teams} />} />
+        <Route path="/home" element={<Home/>} />
+        <Route path="/teams" element={<Teams teams={teams} />} />
         <Route path="/teams/:id" element={<Team />} />
-
+        {/* <Route path="/players" element={<Player players={players} />} /> */}
 
        </Routes>
         <Home />
